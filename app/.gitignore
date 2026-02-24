@@ -1,0 +1,8 @@
+# Environment variables
+.env
+
+# Odoo data
+config/odoo.conf
+
+# Logs
+*.log

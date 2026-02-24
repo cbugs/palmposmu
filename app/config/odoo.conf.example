@@ -1,0 +1,18 @@
+[options]
+; Master password for database management
+; IMPORTANT: Change this to a strong, unique password
+; You can use plain text or generate a hash using: python3 -c "from passlib.context import CryptContext; print(CryptContext(['pbkdf2_sha512']).hash('YOUR_PASSWORD'))"
+admin_passwd = YOUR_SECURE_PASSWORD_HERE
+
+db_template = template1
+addons_path = /usr/lib/python3/dist-packages/odoo/addons,/mnt/extra-addons
+
+; SMTP Configuration - Update with your email provider settings
+smtp_server = smtp.example.com
+smtp_port = 587
+smtp_ssl_certificate_filename = False
+smtp_ssl = False
+email_from = your-email@example.com
+from_filter = your-email@example.com
+smtp_user = your-smtp-username
+smtp_password = your-smtp-password
