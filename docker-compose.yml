@@ -1,11 +1,11 @@
 services:
-  palmpos_web:
+  palmpos_app:
     image: odoo:latest
-    container_name: palmpos_web
+    container_name: palmpos_app
     ports:
       - "8070:8069"
     volumes:
-      - odoo-web-data:/var/lib/odoo
+      - palmpos-web-data:/var/lib/odoo
       - ./app/config:/etc/odoo
       - ./app/addons:/mnt/extra-addons
     env_file:
@@ -36,7 +36,7 @@ services:
         ipv4_address: 172.42.0.11
       web:    
     depends_on:
-      - palmpos_web
+      - palmpos_app
 
 volumes:
   palmpos-web-data:

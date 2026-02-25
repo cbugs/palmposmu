@@ -11,7 +11,10 @@
             Complete POS system for retail stores, restaurants, and cafes across Mauritius. Accept payments, manage inventory, and grow your business.
           </p>
           <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
-            <router-link to="/demo" class="btn-primary">
+            <router-link to="/pricing" class="btn-primary">
+              Get started
+            </router-link>
+            <router-link to="/demo" class="btn-secondary">
               Try demo
             </router-link>
             <router-link to="/contact" class="btn-secondary">

@@ -1,0 +1,14 @@
+/* PalmPOS Custom Styles */
+
+.o-mail-DiscussSystray-class,
+.o_menu_systray > button,
+[data-menu="support"], 
+[data-menu="shortcuts"], 
+[data-menu="account"],
+.o-mail-ImStatus,
+[data-menu="shortcuts"] + div,
+[data-menu="shortcuts"] + div + a{
+    display: none !important;
+}
+
+
