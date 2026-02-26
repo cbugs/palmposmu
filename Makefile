@@ -21,7 +21,8 @@ www-preview:
 	cd www && npm run preview
 
 # Build and deploy website
-deploy-www: www-build
+deploy-www: 
+	www-build
 	docker compose up -d palmpos_www
 
 # Setup everything
@@ -35,3 +36,6 @@ create-site:
 #odoo -d palmpos_demo -i base --db_host=host.docker.internal --db_port=5432 --db_user=palmpos --db_password=palmpos --stop-after-init
 
 #odoo -d palmpos_demo -i base,pos --without-demo=all --stop-after-init
+
+build-www:
+	docker run --rm -v $(shell pwd)/www:/app -w /app node:18 sh -c "npm install && npm run build"
