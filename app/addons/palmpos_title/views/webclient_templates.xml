@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="webclient_bootstrap" inherit_id="web.webclient_bootstrap">
+        <xpath expr="//meta[@name='theme-color']" position="before">
+            <t t-set="head_title">PalmPOS</t>
+            <script type="text/javascript">
+                document.title = 'PalmPOS';
+            </script>
+        </xpath>
+    </template>
+</odoo>
