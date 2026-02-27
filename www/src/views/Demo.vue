@@ -69,8 +69,9 @@
 
             <div class="mt-8">
               <a 
-                href="http://localhost:8070/web/login" 
+                href="https://demo.palmposmu.com/" 
                 target="_blank"
+                rel="noopener noreferrer"
                 class="block w-full bg-palm-600 text-white text-center font-bold py-4 px-6 rounded-lg hover:bg-palm-700 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl"
               >
                 Launch Demo
@@ -110,34 +111,6 @@
                 <div>
                   <h3 class="font-bold text-lg text-gray-900 mb-2">Inventory Management</h3>
                   <p class="text-gray-600">Track stock levels, manage products, and handle warehouses</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="flex items-start gap-4">
-                <div class="flex-shrink-0 w-12 h-12 bg-palm-100 text-palm-600 rounded-lg flex items-center justify-center">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="font-bold text-lg text-gray-900 mb-2">Customer Management</h3>
-                  <p class="text-gray-600">View customer profiles, purchase history, and loyalty points</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="flex items-start gap-4">
-                <div class="flex-shrink-0 w-12 h-12 bg-palm-100 text-palm-600 rounded-lg flex items-center justify-center">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="font-bold text-lg text-gray-900 mb-2">Reports & Analytics</h3>
-                  <p class="text-gray-600">Access sales reports, analytics dashboards, and business insights</p>
                 </div>
               </div>
             </div>

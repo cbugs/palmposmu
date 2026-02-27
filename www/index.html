@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- DNS Prefetch & Preconnect -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
   <!-- Primary Meta Tags -->
   <title>PalmPOS - Point of Sale System for Mauritius | Retail & Restaurant POS</title>
@@ -21,13 +28,21 @@
   <!-- Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
   
+  <!-- Alternate Languages -->
+  <link rel="alternate" hreflang="en" href="https://palmpos.mu/">
+  <link rel="alternate" hreflang="fr" href="https://palmpos.mu/">
+  <link rel="alternate" hreflang="x-default" href="https://palmpos.mu/">
+  
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://palmpos.mu/">
   <meta property="og:title" content="PalmPOS - Point of Sale System for Mauritius">
   <meta property="og:description" content="Modern POS solution for Mauritian retail stores, restaurants, and cafes. Manage your entire business from one platform.">
   <meta property="og:image" content="https://palmpos.mu/palmpos.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="PalmPOS">
   
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
@@ -44,10 +59,9 @@
   <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png">
   <link rel="icon" type="image/png" sizes="128x128" href="/favicon-128x128.png">
   <link rel="apple-touch-icon" sizes="256x256" href="/favicon-256x256.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Inter Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <title>PalmPOS - Modern Point of Sale Solution</title>
   
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -57,24 +71,34 @@
     "name": "PalmPOS",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web, iOS, Android",
+    "url": "https://palmpos.mu",
+    "screenshot": "https://palmpos.mu/palmpos.png",
     "offers": {
       "@type": "Offer",
       "price": "2500",
-      "priceCurrency": "MUR"
+      "priceCurrency": "MUR",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock"
     },
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.8",
-      "ratingCount": "50"
+      "ratingCount": "50",
+      "bestRating": "5",
+      "worstRating": "1"
     },
     "provider": {
       "@type": "Organization",
       "name": "Palmtree Mauritius",
       "url": "https://palmpos.mu",
-      "logo": "https://palmpos.mu/palmpos.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://palmpos.mu/palmpos.png"
+      },
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Port Louis",
+        "addressRegion": "Port Louis",
         "addressCountry": "MU"
       },
       "contactPoint": {
@@ -83,9 +107,49 @@
         "contactType": "Sales",
         "areaServed": "MU",
         "availableLanguage": ["English", "French"]
-      }
+      },
+      "sameAs": [
+        "https://facebook.com/palmposmu",
+        "https://twitter.com/palmposmu"
+      ]
     },
-    "description": "Complete point of sale system for Mauritius businesses. Manage sales, inventory, customers, and payments from one platform."
+    "description": "Complete point of sale system for Mauritius businesses. Manage sales, inventory, customers, and payments from one platform.",
+    "featureList": [
+      "Point of Sale",
+      "Inventory Management",
+      "Payment Processing",
+      "Sales Reports",
+      "Multi-location Support",
+      "Customer Management"
+    ]
+  }
+  </script>
+  
+  <!-- Local Business Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Palmtree Mauritius",
+    "image": "https://palmpos.mu/palmpos.png",
+    "url": "https://palmpos.mu",
+    "telephone": "+230-5xxx-xxxx",
+    "priceRange": "MUR 2500 - MUR 8000",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Port Louis",
+      "addressRegion": "Port Louis",
+      "addressCountry": "MU"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -20.1609,
+      "longitude": 57.5012
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Mauritius"
+    }
   }
   </script>
 </head>
