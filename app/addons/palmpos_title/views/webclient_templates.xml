@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <!-- Backend/App Title -->
     <template id="webclient_bootstrap" inherit_id="web.webclient_bootstrap">
         <xpath expr="//meta[@name='theme-color']" position="before">
             <t t-set="head_title">PalmPOS</t>
             <script type="text/javascript">
                 document.title = 'PalmPOS';
             </script>
+        </xpath>
+    </template>
+
+    <!-- Login Page Title -->
+    <template id="layout" inherit_id="web.layout">
+        <xpath expr="//head/title" position="replace">
+            <title>PalmPOS</title>
         </xpath>
     </template>
 </odoo>
