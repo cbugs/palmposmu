@@ -11,4 +11,12 @@
     display: none !important;
 }
 
+.o_navbar_apps_menu{
+    display: none !important;
+}
+
+nav > a.o_menu_brand {
+    margin-left:10px!important;
+    font-weight:600;
+}
 
