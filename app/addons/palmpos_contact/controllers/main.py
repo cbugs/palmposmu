@@ -91,20 +91,20 @@ class PalmPOSContactController(http.Controller):
             mail.send()
             
             _logger.info(f'Contact form submission from {name} ({email})')
-                
-                response_data = {
-                    'jsonrpc': '2.0',
-                    'id': data.get('id'),
-                    'result': {
-                        'success': True,
-                        'message': 'Thank you for your message! We\'ll get back to you shortly.'
-                    }
+            
+            response_data = {
+                'jsonrpc': '2.0',
+                'id': data.get('id'),
+                'result': {
+                    'success': True,
+                    'message': 'Thank you for your message! We\'ll get back to you shortly.'
                 }
-                return Response(
-                    json.dumps(response_data),
-                    status=200,
-                    headers={**self._get_cors_headers(), 'Content-Type': 'application/json'}
-                )
+            }
+            return Response(
+                json.dumps(response_data),
+                status=200,
+                headers={**self._get_cors_headers(), 'Content-Type': 'application/json'}
+            )
             
         except Exception as e:
             _logger.error(f'Error processing contact form: {str(e)}')

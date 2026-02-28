@@ -4,9 +4,16 @@
     'category': 'Themes/Backend',
     'summary': 'Custom CSS styles for PalmPOS',
     'depends': ['web'],
+    'data': [
+        'views/templates.xml',
+    ],
     'assets': {
         'web.assets_backend': [
             'palmpos_theme/static/src/css/palmpos.css',
+        ],
+        'web.assets_frontend': [
+            'palmpos_theme/static/src/js/install_scoped_app.js',
+            'palmpos_theme/static/src/xml/install_scoped_app.xml',
         ],
         'point_of_sale._assets_pos': [
             'palmpos_theme/static/src/css/pos_branding.css',

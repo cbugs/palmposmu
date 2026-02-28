@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Override the scoped app page to use PalmPOS logo as favicon -->
+    <template id="webclient_scoped_app_custom" inherit_id="web.webclient_scoped_app" name="PalmPOS Scoped App Favicon">
+        <xpath expr="//t[@t-set='x_icon']" position="replace">
+            <t t-set="x_icon" t-value="'/palmpos_theme/static/img/logo.webp'" />
+        </xpath>
+    </template>
+</odoo>

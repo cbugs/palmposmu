@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="web.InstallScopedApp" t-inherit="web.InstallScopedApp" t-inherit-mode="extension">
+        <!-- Replace the app icon with PalmPOS logo -->
+        <xpath expr="//img[contains(@class, 'rounded-4')]" position="attributes">
+            <attribute name="t-att-src">'/palmpos_theme/static/img/logo.webp'</attribute>
+        </xpath>
+        
+        <!-- Replace the publisher link from Odoo S.A. to PalmPOS -->
+        <xpath expr="//a[@href='https://odoo.com']" position="replace">
+            <a class="text-primary text-decoration-none" href="https://palmpos.mu" alt="PalmPOS" target="_blank">PalmPOS</a>
+        </xpath>
+        
+        <!-- Change banner background from bg-info to black -->
+        <xpath expr="//div[contains(@class, 'bg-info')]" position="attributes">
+            <attribute name="class">p-2 px-4 overflow-hidden rounded-2 mw-75 text-white</attribute>
+            <attribute name="style">background-color: #000000;</attribute>
+        </xpath>
+    </t>
+</templates>
