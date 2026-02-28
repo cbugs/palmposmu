@@ -1,5 +1,5 @@
 .login-overlay {
-    background-image: url("/palmpos_theme/static/img/palmpos_bg.png") !important;
+    background-image: url("/palmpos_theme/static/img/palmpos_bg.webp") !important;
 }
 
 .screen-login-logo img{
@@ -9,3 +9,8 @@
 .open-register-btn{
     background-color: rgba(255, 255, 255, 0.4) !important;
 }
+
+.pos-logo {
+    background-image: url("/palmpos_theme/static/img/logo.webp") !important;
+}
+
