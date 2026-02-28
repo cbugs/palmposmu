@@ -20,4 +20,10 @@ nav > a.o_menu_brand {
     font-weight:600;
 }
 
+.o_user_menu_mobile > a:nth-child(1),
+.o_user_menu_mobile > a:nth-child(2),
+.o_user_menu_mobile > a:nth-child(4) {
+    display: none !important;
+}
+
 

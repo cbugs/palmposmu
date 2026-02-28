@@ -28,8 +28,9 @@
             PalmPOS provides the tools you need to succeed.
           </p>
           <p>
-            Today, we're proud to serve hundreds of businesses across Mauritius, processing millions of 
-            transactions and helping our clients grow their revenue and improve their operations.
+            Built with enterprise-grade security, PalmPOS is accessible to businesses of all sizes through our 
+            flexible pricing plans. We provide personalized service and hands-on assistance to help you get the 
+            most out of the system, whether you're just starting out or scaling up your operations.
           </p>
         </div>
       </div>

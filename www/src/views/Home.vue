@@ -137,18 +137,6 @@
       </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="py-16 bg-gray-50 border-t border-gray-100">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div v-for="stat in stats" :key="stat.label">
-            <div class="text-3xl md:text-4xl font-semibold text-gray-900 mb-1">{{ stat.value }}</div>
-            <div class="text-sm text-gray-600">{{ stat.label }}</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- CTA Section -->
     <section class="py-16 md:py-20 bg-white border-t border-gray-100">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -218,12 +206,5 @@ const features = [
       h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9' })
     ])
   },
-]
-
-const stats = [
-  { value: '500+', label: 'Active Businesses' },
-  { value: '1M+', label: 'Transactions/Month' },
-  { value: '99.9%', label: 'Uptime' },
-  { value: '24/7', label: 'Support' },
 ]
 </script>
