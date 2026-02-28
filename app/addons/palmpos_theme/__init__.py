@@ -1,1 +1,3 @@
-# No Python code needed
+# -*- coding: utf-8 -*-
+from . import controllers
+
