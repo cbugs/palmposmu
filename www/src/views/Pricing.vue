@@ -256,7 +256,8 @@ const plans = [
     features: [
       'Up to 3 POS terminals & 2 warehouses',
       'Up to 10 concurrent users',
-      'Handheld POS devices included',
+      'Handheld terminal for POS (rented) included',
+      'Online availability & cloud access everywhere',
       'Barcode scanner included',
       'Receipt printer included',
       'Customer display screen included',
@@ -278,10 +279,12 @@ const plans = [
     features: [
       'Unlimited POS terminals & warehouses',
       'Unlimited users',
+      'Full POS terminals or handheld devices available',
+      'Custom hardware setup tailored to your needs',
       'Multi-company / multi-location management',
       'Accounting & financial reports',
-      'Full mobile POS & optional hardware setup',
       'Cloud-based storage with daily backups',
+      'Full online & offline access anywhere',
       'Enhanced hardware security & device management',
       'API access for custom integrations',
       'Custom workflows & add-ons tailored to business needs',
@@ -298,7 +301,7 @@ const faqs = [
   },
   {
     question: 'What does the setup fee cover?',
-    answer: 'The Starter plan includes free setup for web-only access. Professional and Enterprise plans include setup fees that cover hardware installation, system configuration, data migration, training sessions, and onboarding support to ensure a smooth start.'
+    answer: 'The Starter plan includes free setup for web-only access. Professional plan setup includes handheld terminal rental, hardware installation, system configuration, data migration, training sessions, and onboarding support. Enterprise plans include custom hardware setups (full terminals or handheld devices) tailored to your specific business needs.'
   },
   {
     question: 'What payment methods do you accept?',
@@ -314,7 +317,7 @@ const faqs = [
   },
   {
     question: 'Do you provide training?',
-    answer: 'Yes! Basic training is included with Professional plan setup, and comprehensive training is included with Custom plans.'
+    answer: 'Yes! Basic training is included with Professional plan setup, and comprehensive on-site training is available with Enterprise plans. All plans also include access to our documentation and support resources.'
   },
 ]
 

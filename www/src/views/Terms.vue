@@ -7,7 +7,7 @@
           Terms of Service
         </h1>
         <p class="text-xl text-palm-50">
-          Last updated: February 23, 2026
+          Last updated: February 28, 2026
         </p>
       </div>
     </section>
@@ -218,7 +218,7 @@
               If you have questions about these Terms, please contact us:
             </p>
             <div class="space-y-2 text-gray-600">
-              <p><strong>Email:</strong> <a href="mailto:legal@palmpos.mu" class="text-palm-600 hover:text-palm-700">legal@palmpos.mu</a></p>
+              <p><strong>Email:</strong> <a href="mailto:support@palmposmu.com" class="text-palm-600 hover:text-palm-700">support@palmposmu.com</a></p>
               <p><strong>Address:</strong> Palmtree Mauritius, Port Louis, Mauritius</p>
             </div>
           </div>

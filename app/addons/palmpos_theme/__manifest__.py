@@ -8,6 +8,9 @@
         'web.assets_backend': [
             'palmpos_theme/static/src/css/palmpos.css',
         ],
+        'point_of_sale._assets_pos': [
+            'palmpos_theme/static/src/css/pos_branding.css',
+        ],        
     },
     'installable': True,
     'auto_install': False,

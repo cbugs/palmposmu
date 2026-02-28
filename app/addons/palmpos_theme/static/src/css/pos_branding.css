@@ -1,0 +1,11 @@
+.login-overlay {
+    background-image: url("/palmpos_theme/static/img/palmpos_bg.png") !important;
+}
+
+.screen-login-logo img{
+    display:none!important;
+}
+
+.open-register-btn{
+    background-color: rgba(255, 255, 255, 0.4) !important;
+}
