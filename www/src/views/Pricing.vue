@@ -30,6 +30,81 @@
       </div>
     </section>
 
+    <!-- Cloud Features Section -->
+    <section class="py-12 bg-white border-b border-gray-100">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+          <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-2 tracking-tight">
+            Built for the modern business
+          </h2>
+          <p class="text-gray-600">
+            Cloud-based, secure, and accessible anywhere on any device
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="text-center p-6">
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-palm-100 text-palm-600 rounded-lg mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">100% Cloud-Based</h3>
+            <p class="text-sm text-gray-600">No servers to maintain. Your data is securely stored in the cloud with automatic backups and updates.</p>
+          </div>
+
+          <div class="text-center p-6">
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-palm-100 text-palm-600 rounded-lg mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Bank-Level Security</h3>
+            <p class="text-sm text-gray-600">SSL encryption, secure data centers, and regular security audits protect your business data 24/7.</p>
+          </div>
+
+          <div class="text-center p-6">
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-palm-100 text-palm-600 rounded-lg mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Access Anywhere</h3>
+            <p class="text-sm text-gray-600">Works on desktop, tablet, and mobile. Manage your business from anywhere with internet access.</p>
+          </div>
+        </div>
+
+        <div class="mt-8 text-center">
+          <div class="inline-flex items-center gap-6 text-sm text-gray-600">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-palm-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Desktop</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-palm-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Tablet</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-palm-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Mobile</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-palm-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Offline Mode</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Pricing Cards -->
     <section class="py-16 md:py-20 bg-white">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,33 +164,56 @@
             <!-- Modal panel -->
             <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
               <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                <div class="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 class="text-2xl font-bold text-gray-900">
-                      Get Started with {{ selectedPlan?.name }}
-                    </h3>
-                    <p class="mt-1 text-sm text-gray-500">
-                      Fill in your details and we'll get back to you within 24 hours with more information about your selected plan.
-                    </p>
-                  </div>
-                  <button @click="closeModal" class="text-gray-400 hover:text-gray-500">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                <!-- Success Message -->
+                <div v-if="submitSuccess" class="text-center py-8">
+                  <div class="inline-flex items-center justify-center w-16 h-16 bg-green-100 text-green-600 rounded-full mb-4">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-900 mb-2">Request Submitted!</h3>
+                  <p class="text-gray-600 mb-6">{{ submitMessage }}</p>
+                  <button 
+                    @click="closeModal"
+                    class="px-6 py-2 bg-palm-600 text-white rounded-lg hover:bg-palm-700 transition-colors"
+                  >
+                    Close
                   </button>
                 </div>
 
-                <form @submit.prevent="submitForm" class="space-y-4">
+                <!-- Form -->
+                <div v-else>
+                  <div class="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 class="text-2xl font-bold text-gray-900">
+                        Get Started with {{ selectedPlan?.name }}
+                      </h3>
+                      <p class="mt-1 text-sm text-gray-500">
+                        Fill in your details and we'll get back to you within 24 hours with more information about your selected plan.
+                      </p>
+                    </div>
+                    <button @click="closeModal" class="text-gray-400 hover:text-gray-500">
+                      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+
+                <form @submit.prevent="submitForm" novalidate class="space-y-4">
                   <div>
                     <label for="modal-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name*</label>
                     <input 
                       type="text" 
                       id="modal-name"
                       v-model="formData.name"
+                      @blur="validateField('name')"
+                      @input="validateField('name')"
                       required
-                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-palm-500 focus:border-transparent"
+                      class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:border-transparent"
+                      :class="errors.name ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-palm-500'"
                       placeholder="John Doe"
                     >
+                    <p v-if="errors.name" class="mt-1 text-xs text-red-600">{{ errors.name }}</p>
                   </div>
 
                   <div>
@@ -124,10 +222,14 @@
                       type="email" 
                       id="modal-email"
                       v-model="formData.email"
+                      @blur="validateField('email')"
+                      @input="validateField('email')"
                       required
-                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-palm-500 focus:border-transparent"
+                      class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:border-transparent"
+                      :class="errors.email ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-palm-500'"
                       placeholder="john@company.com"
                     >
+                    <p v-if="errors.email" class="mt-1 text-xs text-red-600">{{ errors.email }}</p>
                   </div>
 
                   <div>
@@ -136,10 +238,14 @@
                       type="tel" 
                       id="modal-phone"
                       v-model="formData.phone"
+                      @blur="validateField('phone')"
+                      @input="validateField('phone')"
                       required
-                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-palm-500 focus:border-transparent"
+                      class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:border-transparent"
+                      :class="errors.phone ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-palm-500'"
                       placeholder="+230 5xxx xxxx"
                     >
+                    <p v-if="errors.phone" class="mt-1 text-xs text-red-600">{{ errors.phone }}</p>
                   </div>
 
                   <div>
@@ -148,10 +254,14 @@
                       type="text" 
                       id="modal-company"
                       v-model="formData.company"
+                      @blur="validateField('company')"
+                      @input="validateField('company')"
                       required
-                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-palm-500 focus:border-transparent"
+                      class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:border-transparent"
+                      :class="errors.company ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-palm-500'"
                       placeholder="Your Business Name"
                     >
+                    <p v-if="errors.company" class="mt-1 text-xs text-red-600">{{ errors.company }}</p>
                   </div>
 
                   <div>
@@ -192,12 +302,12 @@
                     </button>
                   </div>
 
-                  <p v-if="submitMessage" 
-                     class="text-center text-sm"
-                     :class="submitSuccess ? 'text-palm-600' : 'text-red-600'">
+                  <p v-if="submitMessage && !submitSuccess" 
+                     class="text-center text-sm text-red-600">
                     {{ submitMessage }}
                   </p>
                 </form>
+                </div>
               </div>
             </div>
           </div>
@@ -222,6 +332,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { API_ENDPOINTS } from '../config/api'
 
 const plans = [
   {
@@ -335,6 +446,88 @@ const formData = ref({
   message: ''
 })
 
+const errors = ref({
+  name: '',
+  email: '',
+  phone: '',
+  company: ''
+})
+
+const validateEmail = (email) => {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  return re.test(email)
+}
+
+const validateField = (field) => {
+  switch (field) {
+    case 'name':
+      if (!formData.value.name.trim()) {
+        errors.value.name = 'Name is required'
+      } else {
+        errors.value.name = ''
+      }
+      break
+    case 'email':
+      if (!formData.value.email.trim()) {
+        errors.value.email = 'Email is required'
+      } else if (!validateEmail(formData.value.email)) {
+        errors.value.email = 'Please enter a valid email address'
+      } else {
+        errors.value.email = ''
+      }
+      break
+    case 'phone':
+      if (!formData.value.phone.trim()) {
+        errors.value.phone = 'Phone is required'
+      } else {
+        errors.value.phone = ''
+      }
+      break
+    case 'company':
+      if (!formData.value.company.trim()) {
+        errors.value.company = 'Company name is required'
+      } else {
+        errors.value.company = ''
+      }
+      break
+  }
+}
+
+const validateForm = () => {
+  let isValid = true
+  errors.value = {
+    name: '',
+    email: '',
+    phone: '',
+    company: ''
+  }
+  
+  if (!formData.value.name.trim()) {
+    errors.value.name = 'Name is required'
+    isValid = false
+  }
+  
+  if (!formData.value.email.trim()) {
+    errors.value.email = 'Email is required'
+    isValid = false
+  } else if (!validateEmail(formData.value.email)) {
+    errors.value.email = 'Please enter a valid email address'
+    isValid = false
+  }
+  
+  if (!formData.value.phone.trim()) {
+    errors.value.phone = 'Phone is required'
+    isValid = false
+  }
+  
+  if (!formData.value.company.trim()) {
+    errors.value.company = 'Company name is required'
+    isValid = false
+  }
+  
+  return isValid
+}
+
 const openModal = (plan) => {
   selectedPlan.value = plan
   showModal.value = true
@@ -345,41 +538,69 @@ const closeModal = () => {
   showModal.value = false
   selectedPlan.value = null
   submitMessage.value = ''
+  submitSuccess.value = false
+  errors.value = {
+    name: '',
+    email: '',
+    phone: '',
+    company: ''
+  }
+  formData.value = {
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    message: ''
+  }
   document.body.style.overflow = ''
 }
 
 const submitForm = async () => {
+  if (!validateForm()) {
+    return
+  }
   submitting.value = true
   submitMessage.value = ''
+  submitSuccess.value = false
   
-  // Simulate form submission
-  // In production, this would send to your backend API
-  setTimeout(() => {
-    submitting.value = false
-    submitSuccess.value = true
-    submitMessage.value = 'Thank you! We\'ve received your request and will contact you within 24 hours.'
-    
-    // Log the data (in production, this would be sent to backend)
-    console.log('Plan Request:', {
-      plan: selectedPlan.value.name,
-      planPrice: selectedPlan.value.price,
-      setupFee: selectedPlan.value.setupFee,
+  try {
+    const requestData = {
       ...formData.value,
-      timestamp: new Date().toISOString()
+      plan_name: selectedPlan.value.name,
+      plan_price: selectedPlan.value.price,
+      setup_fee: selectedPlan.value.setupFee
+    }
+    
+    const response = await fetch(API_ENDPOINTS.PRICING_INQUIRY, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        jsonrpc: '2.0',
+        method: 'call',
+        params: requestData,
+        id: Date.now()
+      })
     })
     
-    // Reset form after showing success message
-    setTimeout(() => {
-      formData.value = {
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        message: ''
-      }
-      closeModal()
-    }, 3000)
-  }, 1000)
+    const data = await response.json()
+    
+    if (data.result && data.result.success) {
+      submitSuccess.value = true
+      submitMessage.value = data.result.message
+    } else {
+      submitSuccess.value = false
+      submitMessage.value = data.result?.message || 'An error occurred. Please try again.'
+    }
+    
+  } catch (error) {
+    console.error('Form submission error:', error)
+    submitSuccess.value = false
+    submitMessage.value = 'An error occurred. Please try again or email us at support@palmposmu.com'
+  } finally {
+    submitting.value = false
+  }
 }
 </script>
 
