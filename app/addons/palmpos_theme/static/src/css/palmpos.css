@@ -27,4 +27,18 @@ nav > a.o_menu_brand {
     display: none !important;
 }
 
+.oe_login_buttons{
+    display: none !important;
+}
 
+#oe_structure_login_bottom{
+    display: none !important;
+}
+
+#oe_structure_login_bottom + div{
+    display: none !important;
+}
+
+.oe_login_form .o_caps_lock_warning > div > a {
+    display: none !important;
+}

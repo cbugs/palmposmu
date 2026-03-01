@@ -12,6 +12,7 @@
             'palmpos_theme/static/src/css/palmpos.css',
         ],
         'web.assets_frontend': [
+            'palmpos_theme/static/src/css/palmpos.css',
             'palmpos_theme/static/src/js/install_scoped_app.js',
             'palmpos_theme/static/src/xml/install_scoped_app.xml',
         ],
