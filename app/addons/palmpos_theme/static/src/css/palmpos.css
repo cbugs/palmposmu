@@ -27,7 +27,7 @@ nav > a.o_menu_brand {
     display: none !important;
 }
 
-.oe_login_buttons{
+.oe_login_buttons .o_login_auth{
     display: none !important;
 }
 
@@ -39,6 +39,6 @@ nav > a.o_menu_brand {
     display: none !important;
 }
 
-.oe_login_form .o_caps_lock_warning > div > a {
+.oe_login_form [for="password"] + a {
     display: none !important;
 }
