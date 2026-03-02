@@ -8,7 +8,7 @@
         
         <!-- Replace the publisher link from Odoo S.A. to PalmPOS -->
         <xpath expr="//a[@href='https://odoo.com']" position="replace">
-            <a class="text-primary text-decoration-none" href="https://palmpos.mu" alt="PalmPOS" target="_blank">PalmPOS</a>
+            <a class="text-primary text-decoration-none" href="https://palmposmu.com" alt="PalmPOS" target="_blank">PalmPOS</a>
         </xpath>
         
         <!-- Change banner background from bg-info to black -->

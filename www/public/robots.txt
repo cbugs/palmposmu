@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 
-Sitemap: https://palmpos.mu/sitemap.xml
+Sitemap: https://palmposmu.com/sitemap.xml
