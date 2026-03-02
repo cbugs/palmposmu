@@ -5,6 +5,7 @@ import './style.css'
 
 // Import views
 import About from './views/About.vue'
+import Brochure from './views/Brochure.vue'
 import Contact from './views/Contact.vue'
 import Demo from './views/Demo.vue'
 import Features from './views/Features.vue'
@@ -39,6 +40,15 @@ const routes = [
     meta: {
       title: 'Pricing - PalmPOS Mauritius | Affordable POS Plans',
       description: 'Transparent pricing for PalmPOS in Mauritius. Plans starting from Rs 2,500/month. Compare features for retail stores, restaurants and enterprises.'
+    }
+  },
+  { 
+    path: '/brochure', 
+    name: 'Brochure', 
+    component: Brochure,
+    meta: {
+      title: 'Product Brochure - PalmPOS Mauritius | Complete POS Solution Guide',
+      description: 'Download our comprehensive PalmPOS brochure. Get detailed information about features, pricing, devices, and business benefits. Perfect for sharing with decision makers.'
     }
   },
   { 
