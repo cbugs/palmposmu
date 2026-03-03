@@ -48,4 +48,4 @@ export
 # Usage: make backup DB=palmpos
 .PHONY: backup
 backup:
-	@bash backup-db.sh $(DB) $(POSTGRES_USER) $(POSTGRES_PASSWORD) $(POSTGRES_HOST) 5432
+	@bash backup-db.sh $(DB) $(POSTGRES_USER) $(POSTGRES_PASSWORD) localhost 5432

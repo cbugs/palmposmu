@@ -18,7 +18,7 @@ fi
 
 # Generate timestamp for backup filename
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-BACKUP_FILE="$BACKUP_DIR/palmpos_backup_$TIMESTAMP.dump"
+BACKUP_FILE="$BACKUP_DIR/${DB_NAME}_backup_$TIMESTAMP.dump"
 
 echo "Starting database backup..."
 echo "Database: $DB_NAME"
