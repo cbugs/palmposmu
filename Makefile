@@ -39,3 +39,13 @@ create-site:
 
 build-www:
 	docker run --rm -v $(shell pwd)/www:/app -w /app node:18 sh -c "npm install && npm run build"
+
+# Load environment variables from .env file
+include .env
+export
+
+# Database backup using pg_dump (only requires DB parameter, reads credentials from .env)
+# Usage: make backup DB=palmpos (defaults to 'palmpos')
+.PHONY: backup
+backup:
+	@bash backup-db.sh $(or $(DB),palmpos) $(POSTGRES_USER) $(POSTGRES_PASSWORD) $(POSTGRES_HOST) 5432
