@@ -44,8 +44,8 @@ build-www:
 include .env
 export
 
-# Database backup using pg_dump (only requires DB parameter, reads credentials from .env)
-# Usage: make backup DB=palmpos (defaults to 'palmpos')
+# Database backup using pg_dump (requires DB parameter, reads credentials from .env)
+# Usage: make backup DB=palmpos
 .PHONY: backup
 backup:
-	@bash backup-db.sh $(or $(DB),palmpos) $(POSTGRES_USER) $(POSTGRES_PASSWORD) $(POSTGRES_HOST) 5432
+	@bash backup-db.sh $(DB) $(POSTGRES_USER) $(POSTGRES_PASSWORD) $(POSTGRES_HOST) 5432
