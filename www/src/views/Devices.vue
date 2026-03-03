@@ -181,8 +181,8 @@
           <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
             <div class="aspect-square overflow-hidden bg-gray-100">
               <img 
-                src="https://images.unsplash.com/photo-1554224311-beee415c201f?w=400&q=80" 
-                alt="Thermal Roll Papers Model 1" 
+                src="/images/devices/roll.jpg" 
+                alt="Thermal Roll Papers" 
                 class="w-full h-full object-cover"
               >
             </div>
