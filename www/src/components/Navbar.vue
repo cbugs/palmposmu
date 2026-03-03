@@ -89,6 +89,7 @@ const menuItems = [
   { name: 'Home', path: '/' },
   { name: 'Features', path: '/features' },
   { name: 'Pricing', path: '/pricing' },
+  { name: 'Devices', path: '/devices' },
   { name: 'Brochure', path: '/brochure' },
   { name: 'About', path: '/about' },
   { name: 'Contact', path: '/contact' },

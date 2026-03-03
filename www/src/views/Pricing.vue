@@ -414,7 +414,7 @@ const faqs = [
   },
   {
     question: 'Is there a free trial?',
-    answer: 'Yes, we offer a 14-day free trial with the demo system. For custom solutions, we can arrange a personalized demo.'
+    answer: 'Yes, we offer 1 month free with the demo system. For custom solutions, we can arrange a personalized demo.'
   },
   {
     question: 'What happens to my data if I cancel?',

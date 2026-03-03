@@ -96,7 +96,7 @@
         <div class="pricing-list">
           <!-- Starter -->
           <div class="pricing-card">
-            <h3>Starter <span class="price-inline">Rs 300/month</span> <span class="trial-badge">(1 Month Free Trial)</span></h3>
+            <h3>Starter <span class="price-inline">Rs 300/month</span> <span class="trial-badge">(1 Month Free)</span></h3>
             <ul>
               <li><i class="pi pi-check"></i> 1 POS user</li>
               <li><i class="pi pi-check"></i> Unlimited products</li>
@@ -113,7 +113,7 @@
 
           <!-- Business -->
           <div class="pricing-card featured">
-            <h3>Business <span class="price-inline">Rs 1,500/month</span> <span class="trial-badge">(1 Month Free Trial)</span></h3>
+            <h3>Business <span class="price-inline">Rs 1,500/month</span> <span class="trial-badge">(1 Month Free)</span></h3>
             <ul>
               <li><i class="pi pi-check"></i> Up to 5 POS users</li>
               <li><i class="pi pi-check"></i> Multi-outlet support (up to 3 locations)</li>

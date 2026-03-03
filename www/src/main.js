@@ -8,6 +8,7 @@ import About from './views/About.vue'
 import Brochure from './views/Brochure.vue'
 import Contact from './views/Contact.vue'
 import Demo from './views/Demo.vue'
+import Devices from './views/Devices.vue'
 import Features from './views/Features.vue'
 import Home from './views/Home.vue'
 import Pricing from './views/Pricing.vue'
@@ -40,6 +41,15 @@ const routes = [
     meta: {
       title: 'Pricing - PalmPOS Mauritius | Affordable POS Plans',
       description: 'Transparent pricing for PalmPOS in Mauritius. Plans starting from Rs 2,500/month. Compare features for retail stores, restaurants and enterprises.'
+    }
+  },
+  { 
+    path: '/devices', 
+    name: 'Devices', 
+    component: Devices,
+    meta: {
+      title: 'POS Devices & Hardware - PalmPOS Mauritius | Equipment & Pricing',
+      description: 'Browse POS hardware and devices for your Mauritius business. Touch screen terminals, tablets, scanners, printers, and complete packages with pricing.'
     }
   },
   { 
