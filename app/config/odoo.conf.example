@@ -23,6 +23,3 @@ db_host = host.docker.internal
 db_port = 5432
 db_user = palmpos
 db_password = palmpos
-
-xmlrpc_interface = 0.0.0.0
-netrpc_interface = 0.0.0.0
