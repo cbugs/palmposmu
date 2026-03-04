@@ -29,5 +29,5 @@ class PosRedirect(Home):
                  '/app/action-point_of_sale.action_client_pos_menu'], 
                 type='http', auth='user', website=True)
     def pos_backend_redirect(self, **kw):
-        """Redirect POS Backend button directly to dashboard"""
-        return werkzeug.utils.redirect('/app/dashboards?dashboard_id=1', 303)
+        """Redirect POS Backend button directly to point-of-sale"""
+        return werkzeug.utils.redirect('/app/point-of-sale', 303)
