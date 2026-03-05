@@ -1,9 +1,17 @@
 /** @odoo-module **/
 
-// Function to set title
+// Global variable to track if we should use a custom title (e.g., for receipts)
+window.palmposCustomTitle = null;
+
+// Function to set title - only update if custom title is not set or title doesn't match
 const setPalmPOSTitle = () => {
-    if (document.title !== 'PalmPOS') {
-        document.title = 'PalmPOS';
+    // If custom title is set, use it; otherwise use PalmPOS
+    const targetTitle = window.palmposCustomTitle || 'PalmPOS';
+    
+    // Only update if different
+    if (document.title !== targetTitle) {
+        document.title = targetTitle;
+        console.log('Title updated to:', targetTitle);
     }
 };
 
@@ -27,54 +35,19 @@ const updateFavicon = () => {
 // Update favicon on load
 updateFavicon();
 
-// Force title update every 100ms for the first 5 seconds
-let counter = 0;
-const aggressiveInterval = setInterval(() => {
-    setPalmPOSTitle();
-    counter++;
-    if (counter > 50) { // After 5 seconds (50 * 100ms)
-        clearInterval(aggressiveInterval);
-        // Then check every second
-        setInterval(setPalmPOSTitle, 1000);
-    }
-}, 100);
-
-// Watch for any title changes and force it back to PalmPOS
-const observer = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
+// Watch for changes to palmposCustomTitle
+let lastCustomTitle = null;
+const checkTitleInterval = setInterval(() => {
+    // Only update if custom title changed or if no custom title and current title is wrong
+    if (window.palmposCustomTitle !== lastCustomTitle) {
+        lastCustomTitle = window.palmposCustomTitle;
         setPalmPOSTitle();
-    });
-});
-
-// Observe changes to the title element
-const titleElement = document.querySelector('title');
-if (titleElement) {
-    observer.observe(titleElement, { 
-        childList: true,
-        characterData: true,
-        subtree: true 
-    });
-}
+    } else if (!window.palmposCustomTitle && document.title !== 'PalmPOS') {
+        // Only force back to PalmPOS if there's no custom title
+        setPalmPOSTitle();
+    }
+}, 200);
 
 // Set on various events
 window.addEventListener('load', setPalmPOSTitle);
 document.addEventListener('DOMContentLoaded', setPalmPOSTitle);
-
-// Override title property (might not work in all cases due to Odoo's framework)
-try {
-    const originalTitleDesc = Object.getOwnPropertyDescriptor(Document.prototype, 'title');
-    Object.defineProperty(document, 'title', {
-        get: function() {
-            return 'PalmPOS';
-        },
-        set: function(newTitle) {
-            // Always return PalmPOS, ignore attempts to change
-            if (originalTitleDesc && originalTitleDesc.set) {
-                originalTitleDesc.set.call(this, 'PalmPOS');
-            }
-        },
-        configurable: true
-    });
-} catch(e) {
-    console.log('Could not override title property:', e);
-}

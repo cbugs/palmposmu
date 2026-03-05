@@ -1,0 +1,29 @@
+/* Hide company logo from receipt header */
+.pos-receipt-logo {
+    display: none !important;
+}
+
+/* Hide "Powered by Odoo" footer */
+.pos-receipt-footer {
+    display: none !important;
+}
+
+/* Additional targeters for logo */
+.pos-receipt .pos-receipt-logo,
+.receipt-screen .pos-receipt-logo {
+    display: none !important;
+}
+
+/* Additional targeters for footer */
+.pos-receipt .pos-receipt-footer,
+.receipt-screen .pos-receipt-footer {
+    display: none !important;
+}
+
+.pos-receipt-order-data {
+    display: none !important;
+}
+
+.pos-receipt div:has(#posqrcode) {
+    display: none !important;
+}

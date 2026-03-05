@@ -31,7 +31,7 @@ setup: www-install
 
 .PHONY: create-site
 create-site:
-	docker exec -i palmpos_app bash -c "odoo -d palmpos_$(SUBDOMAIN) -i base,point_of_sale,muk_web_appsbar,muk_web_chatter,muk_web_colors,muk_web_dialog,muk_web_group,muk_web_refresh,muk_web_theme,palmpos_contact,palmpos_theme,palmpos_title,pos_auto_redirect,pos_screensaver,web_replace_url --without-demo=all --stop-after-init"
+	docker exec -i palmpos_app bash -c "odoo -d palmpos_$(SUBDOMAIN) -i base,point_of_sale,muk_web_appsbar,muk_web_chatter,muk_web_colors,muk_web_dialog,muk_web_group,muk_web_refresh,muk_web_theme,palmpos_contact,palmpos_theme,palmpos_title,pos_auto_redirect,pos_screensaver,pos_receipt_customize,web_replace_url --without-demo=all --stop-after-init"
 	
 #odoo -d palmpos_demo -i base --db_host=host.docker.internal --db_port=5432 --db_user=palmpos --db_password=palmpos --stop-after-init
 

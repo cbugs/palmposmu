@@ -3,7 +3,7 @@
     'version': '19.0.1.0.0',
     'category': 'Themes/Backend',
     'summary': 'Custom CSS styles for PalmPOS',
-    'depends': ['web'],
+    'depends': ['web', 'point_of_sale'],
     'data': [
         'views/templates.xml',
     ],
@@ -18,6 +18,8 @@
         ],
         'point_of_sale._assets_pos': [
             'palmpos_theme/static/src/css/pos_branding.css',
+            'palmpos_theme/static/src/js/replace_branding.js',
+            'palmpos_theme/static/src/xml/pos_branding.xml',
         ],        
     },
     'installable': True,
