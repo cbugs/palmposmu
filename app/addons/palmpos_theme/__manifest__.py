@@ -18,7 +18,6 @@
         ],
         'point_of_sale._assets_pos': [
             'palmpos_theme/static/src/css/pos_branding.css',
-            'palmpos_theme/static/src/js/replace_branding.js',
             'palmpos_theme/static/src/xml/pos_branding.xml',
         ],        
     },

@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
-
-    <!-- Override OfflineWarningPopup to replace Odoo branding with PalmPOS -->
-    <t t-name="point_of_sale.OfflineWarningPopup" t-inherit="point_of_sale.OfflineWarningPopup" t-inherit-mode="extension">
-        <!-- Replace the body text -->
-        <xpath expr="//p[@class='text-prewrap']" position="replace">
-            <p class="text-prewrap">Until the connection is reestablished, PalmPOS will operate with limited functionality.</p>
-        </xpath>
-    </t>
-
+    <!-- Placeholder for future template overrides -->
 </templates>

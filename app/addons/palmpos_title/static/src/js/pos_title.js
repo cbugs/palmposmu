@@ -46,7 +46,7 @@ const checkTitleInterval = setInterval(() => {
         // Only force back to PalmPOS if there's no custom title
         setPalmPOSTitle();
     }
-}, 200);
+}, 500);
 
 // Set on various events
 window.addEventListener('load', setPalmPOSTitle);

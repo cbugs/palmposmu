@@ -27,3 +27,25 @@
 .pos-receipt div:has(#posqrcode) {
     display: none !important;
 }
+/* WhatsApp button styling */
+.btn-send-whatsapp {
+    background-color: #25D366 !important;
+    color: white !important;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 10px 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-send-whatsapp:hover {
+    background-color: #128C7E !important;
+}
+
+.btn-send-whatsapp i {
+    margin-right: 8px;
+    font-size: 18px;
+}
