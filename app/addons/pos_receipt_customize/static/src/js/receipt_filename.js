@@ -78,50 +78,46 @@ patch(ReceiptScreen.prototype, {
         const maxAttempts = 15;
         
         const tryAddButton = () => {
-            // Try multiple selectors to find where buttons are
-            let buttonContainer = document.querySelector('.receipt-screen .button-container');
+            // Find the receipt-options container
+            const receiptOptions = document.querySelector('.receipt-options');
             
-            if (!buttonContainer) {
-                // Try alternative selectors
-                buttonContainer = document.querySelector('.receipt-screen div[class*="button"]');
-            }
-            
-            if (!buttonContainer) {
-                // Find any button and get its parent
-                const existingButton = document.querySelector('.receipt-screen button');
-                if (existingButton) {
-                    buttonContainer = existingButton.parentElement;
-                }
-            }
-            
-            if (buttonContainer) {
+            if (receiptOptions) {
                 // Check if button already exists
-                if (buttonContainer.querySelector('.btn-send-whatsapp')) {
+                if (receiptOptions.querySelector('.btn-send-whatsapp')) {
                     console.log('WhatsApp button already exists');
                     return;
                 }
                 
+                // Create a wrapper div for the button
+                const buttonWrapper = document.createElement('div');
+                buttonWrapper.className = 'd-flex gap-1';
+                
                 // Create the WhatsApp button
                 const whatsappBtn = document.createElement('button');
-                whatsappBtn.className = 'btn btn-success btn-send-whatsapp';
+                whatsappBtn.className = 'btn btn-success btn-send-whatsapp w-100 py-3';
                 whatsappBtn.innerHTML = '<i class="fa fa-whatsapp"></i> Send via WhatsApp';
                 whatsappBtn.onclick = () => this.sendWhatsApp();
                 
-                // Add button to container
-                buttonContainer.appendChild(whatsappBtn);
+                // Add button to wrapper
+                buttonWrapper.appendChild(whatsappBtn);
+                
+                // Insert after the email section (which is the second child)
+                const emailSection = receiptOptions.querySelector('.d-flex.flex-column.gap-2');
+                if (emailSection) {
+                    emailSection.insertAdjacentElement('afterend', buttonWrapper);
+                } else {
+                    // Fallback: add at the end
+                    receiptOptions.appendChild(buttonWrapper);
+                }
+                
                 console.log('✅ WhatsApp button successfully added!');
             } else {
                 attempts++;
                 if (attempts < maxAttempts) {
-                    console.log(`Retry ${attempts}/${maxAttempts} - looking for button container...`);
+                    console.log(`Retry ${attempts}/${maxAttempts} - looking for receipt-options...`);
                     setTimeout(tryAddButton, 200);
                 } else {
-                    console.error('❌ Could not find button container after', maxAttempts, 'attempts');
-                    // Log what's available
-                    const receiptScreen = document.querySelector('.receipt-screen');
-                    if (receiptScreen) {
-                        console.log('Receipt screen HTML:', receiptScreen.innerHTML.substring(0, 500));
-                    }
+                    console.error('❌ Could not find receipt-options after', maxAttempts, 'attempts');
                 }
             }
         };

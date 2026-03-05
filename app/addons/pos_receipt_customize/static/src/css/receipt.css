@@ -49,3 +49,16 @@
     margin-right: 8px;
     font-size: 18px;
 }
+
+/* Hide email input and send button */
+.receipt-screen .send-receipt-email-input,
+.receipt-screen input.send-receipt-email-input,
+.receipt-screen .send-receipt-email-input ~ div button,
+.send-receipt-email-input {
+    display: none !important;
+}
+
+/* Hide the entire email section container */
+.receipt-options .d-flex.flex-column.gap-2 > .d-flex.flex-column.gap-2 {
+    display: none !important;
+}
