@@ -14,6 +14,7 @@ import Home from './views/Home.vue'
 import Pricing from './views/Pricing.vue'
 import Privacy from './views/Privacy.vue'
 import Terms from './views/Terms.vue'
+import UserGuide from './views/UserGuide.vue'
 
 const routes = [
   { 
@@ -106,6 +107,16 @@ const routes = [
       description: 'Contact PalmPOS Mauritius for sales inquiries, technical support, or demo requests. Email, phone, and office locations in Port Louis.'
     }
   },
+  { 
+    path: '/user-guide', 
+    name: 'UserGuide', 
+    component: UserGuide,
+    meta: {
+      title: 'User Guide - PalmPOS',
+      description: 'PalmPOS user documentation',
+      robots: 'noindex, nofollow'
+    }
+  },
 ]
 
 const router = createRouter({
@@ -129,6 +140,19 @@ router.beforeEach((to, from, next) => {
   const descriptionMeta = document.querySelector('meta[name="description"]')
   if (descriptionMeta && to.meta.description) {
     descriptionMeta.setAttribute('content', to.meta.description)
+  }
+  
+  // Update robots meta tag
+  let robotsMeta = document.querySelector('meta[name="robots"]')
+  if (to.meta.robots) {
+    if (!robotsMeta) {
+      robotsMeta = document.createElement('meta')
+      robotsMeta.setAttribute('name', 'robots')
+      document.head.appendChild(robotsMeta)
+    }
+    robotsMeta.setAttribute('content', to.meta.robots)
+  } else if (robotsMeta) {
+    robotsMeta.remove()
   }
   
   // Update Open Graph meta tags
