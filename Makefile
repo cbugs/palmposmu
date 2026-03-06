@@ -49,3 +49,15 @@ export
 .PHONY: backup
 backup:
 	@bash backup-db.sh $(DB) $(POSTGRES_USER) $(POSTGRES_PASSWORD) localhost 5432
+
+# Update module in specific database
+# Usage: make update-module DB=palmpos_demo MODULE=palmpos_theme
+.PHONY: update-module
+update-module:
+	docker exec -it palmpos_app odoo -d $(DB) -u $(MODULE) --stop-after-init
+
+# Update module across all configured databases
+# Usage: make update-module-all MODULE=palmpos_theme
+.PHONY: update-module-all
+update-module-all:
+	@bash update-module.sh $(MODULE)
