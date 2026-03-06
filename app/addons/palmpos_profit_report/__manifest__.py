@@ -24,7 +24,6 @@
         'wizards/profit_report_wizard_views.xml',
         'views/pos_profit_report_views.xml',
         'reports/profit_report_template.xml',
-        'views/sales_details_template.xml',
         'views/menu.xml',
     ],
     'installable': True,
