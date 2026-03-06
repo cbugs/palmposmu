@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Profit Report Menu under Point of Sale > Reporting -->
+    <menuitem id="menu_profit_report_wizard"
+              name="Profit Report"
+              parent="point_of_sale.menu_point_rep"
+              action="action_profit_report_wizard"
+              sequence="50"/>
+</odoo>

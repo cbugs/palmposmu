@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Report Line Tree View -->
+    <record id="view_pos_profit_report_line_tree" model="ir.ui.view">
+        <field name="name">pos.profit.report.line.tree</field>
+        <field name="model">pos.profit.report.line</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="name"/>
+                <field name="quantity" sum="Total Quantity"/>
+                <field name="sales_amount" sum="Total Sales" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="cost_amount" sum="Total Cost" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="tax_amount" sum="Total Tax" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="discount_amount" sum="Total Discount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="profit_amount" sum="Total Profit" widget="monetary" options="{'currency_field': 'currency_id'}" 
+                       decoration-success="profit_amount &gt; 0" 
+                       decoration-danger="profit_amount &lt; 0"/>
+                <field name="profit_margin"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Report Form View -->
+    <record id="view_pos_profit_report_form" model="ir.ui.view">
+        <field name="name">pos.profit.report.form</field>
+        <field name="model">pos.profit.report</field>
+        <field name="arch" type="xml">
+            <form string="Profit Report">
+                <header>
+                    <button name="action_print_pdf" string="Print PDF" type="object" class="btn-primary"/>
+                    <button name="action_export_excel" string="Export Excel" type="object" class="btn-secondary"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="report_type" widget="radio" readonly="1"/>
+                            Report
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date_from" readonly="1"/>
+                            <field name="date_to" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="session_ids" widget="many2many_tags" readonly="1"/>
+                        </group>
+                    </group>
+                    
+                    <notebook>
+                        <page string="Report Data">
+                            <field name="line_ids" widget="one2many"/>
+                        </page>
+                        <page string="Summary">
+                            <group>
+                                <group string="Sales Summary">
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="total_sales" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    <field name="total_cost" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    <field name="total_tax" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    <field name="total_discount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                </group>
+                                <group string="Profit Summary">
+                                    <field name="total_profit" widget="monetary" options="{'currency_field': 'currency_id'}" 
+                                           class="oe_read_only" 
+                                           decoration-success="total_profit &gt; 0" 
+                                           decoration-danger="total_profit &lt; 0"/>
+                                    <field name="profit_margin" widget="percentage"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Report Tree View -->
+    <record id="view_pos_profit_report_tree" model="ir.ui.view">
+        <field name="name">pos.profit.report.tree</field>
+        <field name="model">pos.profit.report</field>
+        <field name="arch" type="xml">
+            <list string="Profit Reports">
+                <field name="currency_id" column_invisible="1"/>
+                <field name="name"/>
+                <field name="report_type"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="total_sales" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="total_cost" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="total_profit" widget="monetary" options="{'currency_field': 'currency_id'}" 
+                       decoration-success="total_profit &gt; 0" 
+                       decoration-danger="total_profit &lt; 0"/>
+                <field name="profit_margin" widget="percentage"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Report Action -->
+    <record id="action_pos_profit_report" model="ir.actions.act_window">
+        <field name="name">Profit Reports</field>
+        <field name="res_model">pos.profit.report</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Generate a profit report
+            </p>
+            <p>
+                Click "Profit Report" to create a new report.
+            </p>
+        </field>
+    </record>
+</odoo>
