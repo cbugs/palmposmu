@@ -6,4 +6,16 @@
             <t t-set="x_icon" t-value="'/palmpos_theme/static/img/logo.webp'" />
         </xpath>
     </template>
+
+    <!-- Login Page - Change Email to Username -->
+    <template id="login_username" inherit_id="web.login" name="Login Username Label">
+        <!-- Change Email label to Username -->
+        <xpath expr="//label[@for='login']" position="replace">
+            <label for="login" class="form-label d-flex justify-content-between">Username</label>
+        </xpath>
+        <!-- Change placeholder text -->
+        <xpath expr="//input[@name='login']" position="attributes">
+            <attribute name="placeholder">Enter your username</attribute>
+        </xpath>
+    </template>
 </odoo>
