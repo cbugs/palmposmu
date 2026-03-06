@@ -15,23 +15,44 @@
     <template id="report_profit_template">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
-                <div class="page">
-                    <!-- Report Header -->
-                    <div class="text-center mb-4">
-                        <h2>Profit &amp; Loss Report</h2>
-                            <h4>
-                                <t t-if="doc.report_type == 'product'">By Product</t>
-                                <t t-elif="doc.report_type == 'customer'">By Customer</t>
-                                <t t-else="">By Date Range</t>
-                            </h4>
-                            <p>
-                                <strong>Period:</strong> 
-                                <span t-field="doc.date_from"/> to <span t-field="doc.date_to"/>
-                            </p>
+                <t t-set="company" t-value="env.company"/>
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <!-- Report Header -->
+                        <div class="bg-secondary p-3" id="header">
+                            <div class="row">
+                                <div class="col-3 d-flex flex-column justify-content-center">
+                                    <br/>
+                                    <br/>
+                                    <div class="text-start" style="font-size:0.85rem;">
+                                        <span t-esc="company.name"/>
+                                        <address class="mb-0 text-muted" t-field="env.company.partner_id" t-options="{'widget': 'contact', 'fields': ['address'], 'no_marker': True}"/>
+                                    </div>
+                                </div>
+                                <div class="col-6 text-center">
+                                    <h2>Profit &amp; Loss Report</h2>
+                                    <h4>
+                                        <t t-if="doc.report_type == 'product'">By Product</t>
+                                        <t t-elif="doc.report_type == 'customer'">By Customer</t>
+                                        <t t-else="">By Date Range</t>
+                                    </h4>
+                                </div>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="col-12 text-end mt-2">
+                                <span class="badge bg-light text-dark border border-dark p-2">
+                                    <t t-set="date_format" t-value="env['res.lang']._get_data(code=env.user.lang).date_format"/>
+                                    <strong>Period: <span t-field="doc.date_from"/> to <span t-field="doc.date_to"/></strong>
+                                </span>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
 
                         <!-- Report Table -->
-                        <table class="table table-sm">
+                        <h6 class="bg-secondary p-1 fw-bold">Profit Details</h6>
+                        <table class="table table-sm table-borderless">
                             <thead>
                                 <tr>
                                     <th>Name</th>
@@ -45,8 +66,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr t-foreach="doc.line_ids" t-as="line">
-                                    <td><span t-field="line.name"/></td>
+                                <tr t-foreach="doc.line_ids" t-as="line" class="border-bottom border-secondary">
+                                    <td class="ps-2 fw-bold"><span t-field="line.name"/></td>
                                     <td class="text-end"><span t-field="line.quantity"/></td>
                                     <td class="text-end"><span t-field="line.sales_amount" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/></td>
                                     <td class="text-end"><span t-field="line.cost_amount" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/></td>
@@ -57,47 +78,46 @@
                                     </td>
                                     <td class="text-end"><t t-esc="'%.2f' % line.profit_margin"/>%</td>
                                 </tr>
-                            </tbody>
-                            <tfoot>
                                 <tr>
                                     <td><strong>TOTAL</strong></td>
-                                    <td class="text-end"><t t-esc="'%.2f' % sum(doc.line_ids.mapped('quantity'))"/></td>
-                                    <td class="text-end"><span t-field="doc.total_sales" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/></td>
-                                    <td class="text-end"><span t-field="doc.total_cost" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/></td>
-                                    <td class="text-end"><span t-field="doc.total_tax" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/></td>
-                                    <td class="text-end"><span t-field="doc.total_discount" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/></td>
+                                    <td class="text-end"><strong><t t-esc="'%.2f' % sum(doc.line_ids.mapped('quantity'))"/></strong></td>
+                                    <td class="text-end"><strong><span t-field="doc.total_sales" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/></strong></td>
+                                    <td class="text-end"><strong><span t-field="doc.total_cost" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/></strong></td>
+                                    <td class="text-end"><strong><span t-field="doc.total_tax" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/></strong></td>
+                                    <td class="text-end"><strong><span t-field="doc.total_discount" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/></strong></td>
                                     <td class="text-end">
-                                        <span t-field="doc.total_profit" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/>
+                                        <strong><span t-field="doc.total_profit" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/></strong>
                                     </td>
-                                    <td class="text-end"><t t-esc="'%.2f' % doc.profit_margin"/>%</td>
+                                    <td class="text-end"><strong><t t-esc="'%.2f' % doc.profit_margin"/>%</strong></td>
                                 </tr>
-                            </tfoot>
+                            </tbody>
                         </table>
+                        <br/>
 
                         <!-- Summary Box -->
-                        <div class="row mt-4">
-                            <div class="col-6 offset-6">
-                                <table class="table table-sm">
-                                    <tr>
-                                        <td><strong>Total Sales:</strong></td>
-                                        <td class="text-end"><span t-field="doc.total_sales" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Total Cost:</strong></td>
-                                        <td class="text-end"><span t-field="doc.total_cost" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/></td>
-                                    </tr>
-                                    <tr class="border-top">
-                                        <td><strong>Net Profit:</strong></td>
-                                        <td class="text-end"><strong><span t-field="doc.total_profit" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/></strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Profit Margin:</strong></td>
-                                        <td class="text-end"><strong><t t-esc="'%.2f' % doc.profit_margin"/>%</strong></td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
+                        <h6 class="bg-secondary p-1 fw-bold w-50 ms-auto">Summary</h6>
+                        <table class="table table-sm table-borderless w-50 ms-auto">
+                            <tbody>
+                                <tr class="border-bottom border-secondary">
+                                    <td class="ps-2 fw-bold">Total Sales:</td>
+                                    <td class="text-end"><span t-field="doc.total_sales" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/></td>
+                                </tr>
+                                <tr class="border-bottom border-secondary">
+                                    <td class="ps-2 fw-bold">Total Cost:</td>
+                                    <td class="text-end"><span t-field="doc.total_cost" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/></td>
+                                </tr>
+                                <tr class="border-bottom border-secondary">
+                                    <td class="ps-2 fw-bold">Net Profit:</td>
+                                    <td class="text-end"><strong><span t-field="doc.total_profit" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/></strong></td>
+                                </tr>
+                                <tr>
+                                    <td class="ps-2 fw-bold">Profit Margin:</td>
+                                    <td class="text-end"><strong><t t-esc="'%.2f' % doc.profit_margin"/>%</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
+                </t>
             </t>
         </t>
     </template>
