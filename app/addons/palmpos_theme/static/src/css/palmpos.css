@@ -42,3 +42,11 @@ nav > a.o_menu_brand {
 .oe_login_form [for="password"] + a {
     display: none !important;
 }
+
+[data-menu="install_pwa"] {
+    display: none !important;
+}
+
+.oe_login_buttons .btn-sm {
+    display: none !important;
+}
