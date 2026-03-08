@@ -19,6 +19,9 @@ DATABASES=(
     "palmpos_cyberplast",
     "palmpos_hungry-buddha",
     "palmpos_mashwiyy",
+    "palmpos_lfclothings",
+    "palmpos_zen-vitality",
+    "palmpos_hero-star-sharolay"
     # Add more databases here as needed
 )
 
