@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add Print Receipt button to POS Order form view -->
+    <record id="view_pos_order_form_print_button" model="ir.ui.view">
+        <field name="name">pos.order.form.print.button</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[@name='action_pos_order_invoice']" position="after">
+                <button name="action_view_receipt" 
+                        type="object" 
+                        string="View Receipt" 
+                        icon="fa-print"
+                        class="btn-primary"
+                        invisible="state not in ('paid', 'done')"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
