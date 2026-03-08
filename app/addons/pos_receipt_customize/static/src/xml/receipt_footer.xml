@@ -6,7 +6,7 @@
         <!-- Add custom footer message at the end -->
         <xpath expr="//div[hasclass('pos-receipt')]" position="inside">
             <t t-if="env.services.pos?.config?.receipt_footer_message">
-                <div class="pos-receipt-custom-footer" style="text-align: center; margin-top: 12px; font-size: 14px; border-top: 1px dashed #000; padding-top: 8px;">
+                <div class="pos-receipt-custom-footer" style="text-align: center; margin-top: 12px; font-size: 10px; border-top: 1px dashed #000; padding-top: 8px;">
                     <t t-esc="env.services.pos.config.receipt_footer_message"/>
                 </div>
             </t>
