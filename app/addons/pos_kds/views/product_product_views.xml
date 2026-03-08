@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add Kitchen fields to product template -->
+    <record id="product_template_view_form_inherit_kds" model="ir.ui.view">
+        <field name="name">product.template.form.inherit.kds</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sales']" position="inside">
+                <group string="Kitchen Display System">
+                    <field name="prepair_time_minutes" widget="float_time"
+                           string="Preparation Time (minutes)"/>
+                    <field name="pos_categ_ids" widget="many2many_tags" 
+                           string="Kitchen Categories"
+                           help="Assign POS categories to route this product to specific kitchen screens"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="0">
+        <!-- Demo Kitchen Screen - User must configure pos_config_id and pos_categ_ids -->
+        <record id="kitchen_screen_demo_main" model="kitchen.screen">
+            <field name="sequence">KITCHEN0001</field>
+        </record>
+    </data>
+</odoo>
