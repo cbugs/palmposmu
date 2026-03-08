@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_config_view_form_inherit_receipt_footer" model="ir.ui.view">
+        <field name="name">pos.config.form.inherit.receipt.footer</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="receipt_footer_message" 
+                       placeholder="Thank you for your business!"
+                       string="Receipt Footer Message"
+                       help="Message shown at the bottom of receipts and WhatsApp messages"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
