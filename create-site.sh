@@ -66,7 +66,7 @@ echo ""
 
 # Step 2.5: Copy filestore from template to new database
 echo "Step 2.5: Copying filestore from template..."
-docker exec palmpos_app cp -r /var/lib/odoo/filestore/"$TEMPLATE_DB" /var/lib/odoo/filestore/"$DB_NAME"
+docker exec palmpos_app cp -r /var/lib/odoo/.local/share/Odoo/filestore/"$TEMPLATE_DB" /var/lib/odoo/.local/share/Odoo/filestore/"$DB_NAME"
 
 if [ $? -ne 0 ]; then
     echo "⚠ Warning: Could not copy filestore"
