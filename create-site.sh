@@ -86,42 +86,8 @@ fi
 echo "✓ Point of Sale name updated"
 echo ""
 
-# Step 5: Regenerate database UUID to prevent cache conflicts
-echo "Step 5: Regenerating database UUID..."
-NEW_UUID=$(cat /proc/sys/kernel/random/uuid 2>/dev/null || uuidgen)
-PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -h localhost -c "UPDATE ir_config_parameter SET value = '$NEW_UUID' WHERE key = 'database.uuid';"
-
-if [ $? -ne 0 ]; then
-    echo "⚠ Warning: Could not update database UUID"
-else
-    echo "✓ Database UUID regenerated"
-fi
-echo ""
-
-# Step 6: Clear and regenerate assets
-echo "Step 6: Clearing cached assets..."
-PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -h localhost -c "DELETE FROM ir_attachment WHERE name LIKE 'web.assets%' OR name LIKE '%web_icon_data%';"
-
-if [ $? -ne 0 ]; then
-    echo "⚠ Warning: Could not clear cached assets"
-else
-    echo "✓ Cached assets cleared"
-fi
-echo ""
-
-# Step 7: Regenerate assets by updating base module
-echo "Step 7: Regenerating assets..."
-docker exec palmpos_app odoo -d "$DB_NAME" -u base --stop-after-init
-
-if [ $? -ne 0 ]; then
-    echo "⚠ Warning: Asset regeneration may have failed"
-else
-    echo "✓ Assets regenerated successfully"
-fi
-echo ""
-
-# Step 8: Add to databases.conf
-echo "Step 8: Adding to $CONFIG_FILE..."
+# Step 5: Add to databases.conf
+echo "Step 5: Adding to $CONFIG_FILE..."
 if [ ! -f "$CONFIG_FILE" ]; then
     echo "Warning: $CONFIG_FILE not found, creating it"
     echo "# List of databases for update-module.sh" > "$CONFIG_FILE"
