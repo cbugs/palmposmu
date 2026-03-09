@@ -11,19 +11,32 @@ fi
 
 MODULE=$1
 
-# List of databases to update
-DATABASES=(
-    "palmpos_demo"
-    "palmpos_bigpapa-rod",
-    "palmpos_chumroo-market",
-    "palmpos_cyberplast",
-    "palmpos_hungry-buddha",
-    "palmpos_mashwiyy",
-    "palmpos_lfclothings",
-    "palmpos_zen-vitality",
-    "palmpos_hero-star-sharolay"
-    # Add more databases here as needed
-)
+# Load databases from config file
+CONFIG_FILE="databases.conf"
+
+if [ ! -f "$CONFIG_FILE" ]; then
+    echo "Error: $CONFIG_FILE not found"
+    echo "Please create $CONFIG_FILE with one database name per line"
+    echo "See databases.conf.example for reference"
+    exit 1
+fi
+
+# Read databases from config file, ignoring comments and empty lines
+DATABASES=()
+while IFS= read -r line || [ -n "$line" ]; do
+    # Skip comments and empty lines
+    [[ "$line" =~ ^[[:space:]]*# ]] && continue
+    [[ -z "${line// }" ]] && continue
+    # Trim whitespace and add to array
+    db=$(echo "$line" | xargs)
+    DATABASES+=("$db")
+done < "$CONFIG_FILE"
+
+# Check if we have any databases
+if [ ${#DATABASES[@]} -eq 0 ]; then
+    echo "Error: No databases found in $CONFIG_FILE"
+    exit 1
+fi
 
 echo "==========================================="
 echo "Updating module: $MODULE"

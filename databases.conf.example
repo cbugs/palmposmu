@@ -1,0 +1,8 @@
+# List of databases for update-module.sh
+# One database name per line
+# Lines starting with # are ignored
+# Copy this file to databases.conf and add your database names
+
+palmpos_demo
+# palmpos_site1
+# palmpos_site2
