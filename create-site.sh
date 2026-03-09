@@ -99,27 +99,26 @@ fi
 echo ""
 
 # Step 6: Clear and regenerate assets
-echo "Step 6: Clearing ALL cached assets, SCSS bundles, and sessions..."
-PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -h localhost -c "DELETE FROM ir_attachment WHERE name LIKE 'web.assets%' OR name LIKE '%/web.assets%' OR name LIKE '%assets_%' OR name LIKE '%web_icon_data%' OR res_model = 'ir.ui.view' OR datas_fname LIKE '%.scss' OR datas_fname LIKE '%.css' OR datas_fname LIKE '%.js' AND res_model = 'ir.ui.view';"
+echo "Step 6: Clearing cached assets and sessions..."
+PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -h localhost -c "DELETE FROM ir_attachment WHERE name LIKE 'web.assets%' OR name LIKE '%web_icon_data%' OR res_model = 'ir.ui.view';"
 PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -h localhost -c "DELETE FROM ir_sessions;"
-PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -h localhost -c "UPDATE ir_ui_view SET write_date = NOW() WHERE id > 0;"
-PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -h localhost -c "DELETE FROM ir_model_data WHERE module = 'web' AND model = 'ir.attachment';"
+PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -h localhost -c "UPDATE ir_ui_view SET write_date = NOW();"
 
 if [ $? -ne 0 ]; then
-    echo "⚠ Warning: Could not clear all cached assets"
+    echo "⚠ Warning: Could not clear cached assets"
 else
-    echo "✓ All cached assets, SCSS bundles, and sessions cleared"
+    echo "✓ Cached assets, sessions, and views cleared"
 fi
 echo ""
 
-# Step 7: Update modules (preserves configuration)
-echo "Step 7: Updating all modules and regenerating assets..."
-docker exec palmpos_app odoo -d "$DB_NAME" -u base,point_of_sale,muk_web_theme,muk_web_colors,muk_web_appsbar,muk_web_chatter,muk_web_dialog,muk_web_group,muk_web_refresh,palmpos_contact,palmpos_theme,palmpos_title,pos_auto_redirect,pos_screensaver,pos_receipt_customize,palmpos_profit_report,web_replace_url --stop-after-init
+# Step 7: Regenerate assets by updating base module
+echo "Step 7: Regenerating assets and updating all modules..."
+docker exec palmpos_app odoo -d "$DB_NAME" -u base,point_of_sale,muk_web_appsbar,muk_web_chatter,muk_web_colors,muk_web_dialog,muk_web_group,muk_web_refresh,muk_web_theme,palmpos_contact,palmpos_theme,palmpos_title,pos_auto_redirect,pos_screensaver,pos_receipt_customize,palmpos_profit_report,web_replace_url --stop-after-init
 
 if [ $? -ne 0 ]; then
     echo "⚠ Warning: Module update may have failed"
 else
-    echo "✓ All modules updated and assets regenerated successfully (configurations preserved)"
+    echo "✓ All modules updated and assets regenerated successfully"
 fi
 echo ""
 
