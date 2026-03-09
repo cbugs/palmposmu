@@ -104,7 +104,7 @@ echo ""
 
 # Step 4.5: Update owner user name
 echo "Step 4.5: Updating owner user name to '$SITE_NAME'..."
-PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -h localhost -c "UPDATE res_users SET name = '$SITE_NAME' WHERE login = 'owner';"
+PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -h localhost -c "UPDATE res_partner SET name = '$SITE_NAME' WHERE id = (SELECT partner_id FROM res_users WHERE login = 'owner');"
 
 if [ $? -ne 0 ]; then
     echo "⚠ Warning: Could not update owner user name"
