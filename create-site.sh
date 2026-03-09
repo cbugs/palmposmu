@@ -66,7 +66,12 @@ echo ""
 
 # Step 2.5: Copy filestore from template to new database
 echo "Step 2.5: Copying filestore from template..."
-docker exec palmpos_app cp -r /var/lib/odoo/.local/share/Odoo/filestore/"$TEMPLATE_DB" /var/lib/odoo/.local/share/Odoo/filestore/"$DB_NAME"
+# First remove any existing filestore for new DB
+docker exec -u root palmpos_app rm -rf /var/lib/odoo/.local/share/Odoo/filestore/"$DB_NAME"
+# Then copy the template filestore contents
+docker exec -u root palmpos_app cp -r /var/lib/odoo/.local/share/Odoo/filestore/"$TEMPLATE_DB" /var/lib/odoo/.local/share/Odoo/filestore/"$DB_NAME"
+# Fix ownership
+docker exec -u root palmpos_app chown -R odoo:odoo /var/lib/odoo/.local/share/Odoo/filestore/"$DB_NAME"
 
 if [ $? -ne 0 ]; then
     echo "⚠ Warning: Could not copy filestore"
