@@ -102,8 +102,19 @@ fi
 echo "✓ Point of Sale name updated"
 echo ""
 
-# Step 4.5: Regenerate asset bundles
-echo "Step 4.5: Regenerating asset bundles..."
+# Step 4.5: Update owner user name
+echo "Step 4.5: Updating owner user name to '$SITE_NAME'..."
+PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -h localhost -c "UPDATE res_users SET name = '$SITE_NAME' WHERE login = 'owner';"
+
+if [ $? -ne 0 ]; then
+    echo "⚠ Warning: Could not update owner user name"
+else
+    echo "✓ Owner user name updated"
+fi
+echo ""
+
+# Step 4.6: Regenerate asset bundles
+echo "Step 4.6: Regenerating asset bundles..."
 docker exec palmpos_app odoo shell -d "$DB_NAME" --db_host=host.docker.internal --db_user="$POSTGRES_USER" --db_password="$POSTGRES_PASSWORD" <<EOF
 self.env['ir.attachment'].regenerate_assets_bundles()
 self.env.cr.commit()
