@@ -45,7 +45,7 @@ echo ""
 
 # Step 1: Create database from template
 echo "Step 1: Creating database from template..."
-PGPASSWORD="$POSTGRES_PASSWORD" createdb "$DB_NAME" -T "$TEMPLATE_DB" -O "$POSTGRES_USER" -U "$POSTGRES_USER"
+PGPASSWORD="$POSTGRES_PASSWORD" createdb "$DB_NAME" -T "$TEMPLATE_DB" -O "$POSTGRES_USER" -U "$POSTGRES_USER" -h localhost
 
 if [ $? -ne 0 ]; then
     echo "✗ Failed to create database"
@@ -56,7 +56,7 @@ echo ""
 
 # Step 2: Update company name
 echo "Step 2: Updating company name to '$SITE_NAME'..."
-PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -c "UPDATE res_company SET name = '$SITE_NAME' WHERE id = 1;"
+PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -h localhost -c "UPDATE res_company SET name = '$SITE_NAME' WHERE id = 1;"
 
 if [ $? -ne 0 ]; then
     echo "✗ Failed to update company name"
@@ -67,7 +67,7 @@ echo ""
 
 # Step 3: Update Point of Sale name
 echo "Step 3: Updating Point of Sale name to '$SITE_NAME'..."
-PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -c "UPDATE pos_config SET name = '$SITE_NAME' WHERE id = 1;"
+PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -h localhost -c "UPDATE pos_config SET name = '$SITE_NAME' WHERE id = 1;"
 
 if [ $? -ne 0 ]; then
     echo "✗ Failed to update POS name"
