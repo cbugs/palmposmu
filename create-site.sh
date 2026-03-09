@@ -102,6 +102,21 @@ fi
 echo "✓ Point of Sale name updated"
 echo ""
 
+# Step 4.5: Regenerate asset bundles
+echo "Step 4.5: Regenerating asset bundles..."
+docker exec palmpos_app odoo shell -d "$DB_NAME" --db_host=host.docker.internal --db_user="$POSTGRES_USER" --db_password="$POSTGRES_PASSWORD" <<EOF
+self.env['ir.attachment'].regenerate_assets_bundles()
+self.env.cr.commit()
+exit()
+EOF
+
+if [ $? -ne 0 ]; then
+    echo "⚠ Warning: Could not regenerate assets"
+else
+    echo "✓ Asset bundles regenerated"
+fi
+echo ""
+
 # Step 5: Add to databases.conf
 echo "Step 5: Adding to $CONFIG_FILE..."
 if [ ! -f "$CONFIG_FILE" ]; then
