@@ -99,26 +99,24 @@ fi
 echo ""
 
 # Step 6: Clear and regenerate assets
-echo "Step 6: Clearing cached assets and sessions..."
-PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -h localhost -c "DELETE FROM ir_attachment WHERE name LIKE 'web.assets%' OR name LIKE '%web_icon_data%' OR res_model = 'ir.ui.view';"
-PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -h localhost -c "DELETE FROM ir_sessions;"
-PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -h localhost -c "UPDATE ir_ui_view SET write_date = NOW();"
+echo "Step 6: Clearing cached assets..."
+PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -h localhost -c "DELETE FROM ir_attachment WHERE name LIKE 'web.assets%' OR name LIKE '%web_icon_data%';"
 
 if [ $? -ne 0 ]; then
     echo "⚠ Warning: Could not clear cached assets"
 else
-    echo "✓ Cached assets, sessions, and views cleared"
+    echo "✓ Cached assets cleared"
 fi
 echo ""
 
 # Step 7: Regenerate assets by updating base module
-echo "Step 7: Regenerating assets and updating all modules..."
-docker exec palmpos_app odoo -d "$DB_NAME" -u base,point_of_sale,muk_web_appsbar,muk_web_chatter,muk_web_colors,muk_web_dialog,muk_web_group,muk_web_refresh,muk_web_theme,palmpos_contact,palmpos_theme,palmpos_title,pos_auto_redirect,pos_screensaver,pos_receipt_customize,palmpos_profit_report,web_replace_url --stop-after-init
+echo "Step 7: Regenerating assets..."
+docker exec palmpos_app odoo -d "$DB_NAME" -u base --stop-after-init
 
 if [ $? -ne 0 ]; then
-    echo "⚠ Warning: Module update may have failed"
+    echo "⚠ Warning: Asset regeneration may have failed"
 else
-    echo "✓ All modules updated and assets regenerated successfully"
+    echo "✓ Assets regenerated successfully"
 fi
 echo ""
 
