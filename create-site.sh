@@ -43,8 +43,18 @@ echo "Template: $TEMPLATE_DB"
 echo "==========================================="
 echo ""
 
-# Step 1: Create database from template
-echo "Step 1: Creating database from template..."
+# Step 1: Terminate connections to template database
+echo "Step 1: Disconnecting users from template database..."
+PGPASSWORD="$POSTGRES_PASSWORD" psql -U "$POSTGRES_USER" -h localhost -d postgres -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$TEMPLATE_DB' AND pid <> pg_backend_pid();"
+
+if [ $? -ne 0 ]; then
+    echo "⚠ Warning: Could not terminate all connections"
+fi
+echo "✓ Template database ready"
+echo ""
+
+# Step 2: Create database from template
+echo "Step 2: Creating database from template..."
 PGPASSWORD="$POSTGRES_PASSWORD" createdb "$DB_NAME" -T "$TEMPLATE_DB" -O "$POSTGRES_USER" -U "$POSTGRES_USER" -h localhost
 
 if [ $? -ne 0 ]; then
@@ -54,8 +64,8 @@ fi
 echo "✓ Database created successfully"
 echo ""
 
-# Step 2: Update company name
-echo "Step 2: Updating company name to '$SITE_NAME'..."
+# Step 3: Update company name
+echo "Step 3: Updating company name to '$SITE_NAME'..."
 PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -h localhost -c "UPDATE res_company SET name = '$SITE_NAME' WHERE id = 1;"
 
 if [ $? -ne 0 ]; then
@@ -65,8 +75,8 @@ fi
 echo "✓ Company name updated"
 echo ""
 
-# Step 3: Update Point of Sale name
-echo "Step 3: Updating Point of Sale name to '$SITE_NAME'..."
+# Step 4: Update Point of Sale name
+echo "Step 4: Updating Point of Sale name to '$SITE_NAME'..."
 PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -h localhost -c "UPDATE pos_config SET name = '$SITE_NAME' WHERE id = 1;"
 
 if [ $? -ne 0 ]; then
@@ -76,8 +86,8 @@ fi
 echo "✓ Point of Sale name updated"
 echo ""
 
-# Step 4: Add to databases.conf
-echo "Step 4: Adding to $CONFIG_FILE..."
+# Step 5: Add to databases.conf
+echo "Step 5: Adding to $CONFIG_FILE..."
 if [ ! -f "$CONFIG_FILE" ]; then
     echo "Warning: $CONFIG_FILE not found, creating it"
     echo "# List of databases for update-module.sh" > "$CONFIG_FILE"
