@@ -64,6 +64,17 @@ fi
 echo "✓ Database created successfully"
 echo ""
 
+# Step 2.5: Copy filestore from template to new database
+echo "Step 2.5: Copying filestore from template..."
+docker exec palmpos_app cp -r /var/lib/odoo/filestore/"$TEMPLATE_DB" /var/lib/odoo/filestore/"$DB_NAME"
+
+if [ $? -ne 0 ]; then
+    echo "⚠ Warning: Could not copy filestore"
+else
+    echo "✓ Filestore copied successfully"
+fi
+echo ""
+
 # Step 3: Update company name
 echo "Step 3: Updating company name to '$SITE_NAME'..."
 PGPASSWORD="$POSTGRES_PASSWORD" psql -d "$DB_NAME" -U "$POSTGRES_USER" -h localhost -c "UPDATE res_company SET name = '$SITE_NAME' WHERE id = 1;"
