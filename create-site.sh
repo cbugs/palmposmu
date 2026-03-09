@@ -16,7 +16,7 @@ SITE_SLUG=$2
 DB_NAME="palmpos_${SITE_SLUG}"
 TEMPLATE_DB="palmpos_template1"
 CONFIG_FILE="databases.conf"
-ENV_FILE="app/.env"
+ENV_FILE=".env"
 
 # Load database credentials from .env file
 if [ ! -f "$ENV_FILE" ]; then
