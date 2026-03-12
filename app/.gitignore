@@ -6,3 +6,5 @@ config/odoo.conf
 
 # Logs
 *.log
+
+filestore/
