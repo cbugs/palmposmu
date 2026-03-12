@@ -346,17 +346,6 @@
       </div>
     </section>
 
-    <!-- Price Disclaimer -->
-    <section class="py-8 bg-white">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
-          <p class="text-xs text-gray-600 text-center">
-            <strong>Note:</strong> Prices shown are for standard bundles. Final invoice may vary if hardware options or accessories are changed.
-          </p>
-        </div>
-      </div>
-    </section>
-
     <!-- CTA Section -->
     <section class="py-12 bg-gradient-to-br from-palm-600 to-palm-700 text-white">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
