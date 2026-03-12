@@ -219,7 +219,7 @@
               <p class="text-xs text-gray-600">Optional Add-On</p>
             </div>
             <div class="flex items-baseline">
-              <span class="text-2xl font-bold text-gray-900">Rs 2,000</span>
+              <span class="text-2xl font-bold text-gray-900">Rs 2,500</span>
             </div>
           </div>
         </div>
@@ -311,7 +311,7 @@
             <div class="p-2">
               <h3 class="text-xs font-semibold text-gray-900 mb-1">Cash Drawer</h3>
               <p class="text-xs text-gray-600 mb-1">Cash Box</p>
-              <p class="text-sm font-semibold text-gray-900">Rs 2,000</p>
+              <p class="text-sm font-semibold text-gray-900">Rs 2,500</p>
             </div>
           </div>
         </div>
