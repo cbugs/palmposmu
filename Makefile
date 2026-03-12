@@ -66,3 +66,8 @@ update-module:
 .PHONY: update-module-all
 update-module-all:
 	@bash update-module.sh $(MODULE)
+
+#createdb -U postgres -W -O palmpos palmpos_template1
+#psql -h 127.0.0.1 -U postgres -W -d postgres
+#pg_restore -h 127.0.0.1 -U postgres -W -d palmpos_template1 .\backup\palmpos_master.dump
+

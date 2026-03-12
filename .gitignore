@@ -2,3 +2,10 @@
 **/*.pyc
 backup/
 databases.conf
+
+# Filestore - contains user data and should not be committed
+filestore/*
+!filestore/.gitkeep
+!filestore/README.md
+
+app/filestore/
