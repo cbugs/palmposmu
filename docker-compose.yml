@@ -8,6 +8,7 @@ services:
       - palmpos-web-data:/var/lib/odoo
       - ./app/config:/etc/odoo
       - ./app/addons:/mnt/extra-addons
+      - ./app/filestore:/var/lib/odoo/.local/share/Odoo/filestore
     env_file:
       - ./app/.env
     environment:
