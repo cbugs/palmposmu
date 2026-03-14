@@ -50,3 +50,8 @@ nav > a.o_menu_brand {
 .oe_login_buttons .btn-sm {
     display: none !important;
 }
+
+/* Hide Send E-Mail button on payslip */
+button[name="action_send_email"] {
+    display: none !important;
+}
